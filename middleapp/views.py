@@ -2,7 +2,6 @@ from django.shortcuts import render, HttpResponse
 from django.template.response import TemplateResponse as render
 # from django.http import HttpResponse
 from .models import *
-from .middleware import my_middleware
 # Create your views here.
 
 
