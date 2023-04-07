@@ -1,3 +1,7 @@
+import sys
+
+sys.setrecursionlimit(1000)
+
 class Middleware:
 
     def __init__(self, get_response):
@@ -8,6 +12,7 @@ class Middleware:
         return response
     
     def process_template_response(self, request, response):
+        api_response = self.get_response(request)
         api_request = {
             "Request": {
                 "Scheme": request.scheme,
@@ -23,9 +28,8 @@ class Middleware:
                 "Body": request.body,
             },
             "Response":{
-                "Headers": response.headers
+                "Headers": response.headers,
+                "Content": api_response.content
             }
-
         }
-        print(api_request)
         return response
