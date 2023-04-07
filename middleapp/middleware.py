@@ -12,7 +12,7 @@ class Middleware:
         return response
     
     def process_template_response(self, request, response):
-        api_response = self.get_response(request)
+        # api_response = self.get_response(request)
         api_request = {
             "Request": {
                 "Scheme": request.scheme,
@@ -29,7 +29,7 @@ class Middleware:
             },
             "Response":{
                 "Headers": response.headers,
-                "Content": api_response.content
+                # "Content": api_response.content
             }
         }
         return response
